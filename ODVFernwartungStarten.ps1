@@ -7,11 +7,11 @@ function Download_TeamViewerQS() {
     $IEBrowser.Navigate($URL)
     Start-Sleep -Seconds 3
     $CustomTVQS_URL = $IEBrowser.Document.getElementById('MasterBodyContent_btnRetry').href
-    Start-BitsTransfer -Source $CustomTVQS_URL -Destination $FilePath\$FileName
+    Start-BitsTransfer -Source $CustomTVQS_URL -Destination "$FilePath\$FileName"
 }
 
 if(!(Test-Path $FilePath\$FileName)) {
     New-Item -Path $FilePath -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
     Download_TeamViewerQS
 }
-& Start-Process $FilePath\$FileName
+& Start-Process "$FilePath\$FileName"
