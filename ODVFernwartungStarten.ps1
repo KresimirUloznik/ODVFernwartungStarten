@@ -1,7 +1,7 @@
 
 $FilePath = 'C:\Temp'
 $FileName = 'ODVFernwartung.exe'
-$URL = "https://get.teamviewer.com/odvfernwartung"
+$URL = 'https://get.teamviewer.com/odvfernwartung'
 
 function Download_TeamViewerQS() {
     $IEBrowser = New-Object -ComObject InternetExplorer.Application
@@ -11,8 +11,8 @@ function Download_TeamViewerQS() {
     Start-BitsTransfer -Source $CustomTVQS_URL -Destination "$FilePath\$FileName"
 }
 
-if(!(Test-Path $FilePath\$FileName)) {
-    New-Item -Path $FilePath -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
+if(!(Test-Path "$FilePath\$FileName")) {
+    New-Item -Path "$FilePath" -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
     Download_TeamViewerQS
 }
 & Start-Process "$FilePath\$FileName"
