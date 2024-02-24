@@ -16,4 +16,4 @@ if(!(Test-Path "$FilePath\$FileName")) {
     New-Item -Path "$FilePath" -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
     Download_TeamViewerQS
 }
-#& Start-Process "$FilePath\$FileName"
+& Start-Process "$FilePath\$FileName"
