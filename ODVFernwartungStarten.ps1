@@ -11,7 +11,7 @@ function Download_TeamViewerQS() {
     Start-BitsTransfer -Source $CustomTVQS_URL -Destination "$FilePath\$FileName"
 }
 
-Start-Job {(New-Object -ComObject "Wscript.Shell").Popup("ODV Fernwartung wird gestartet....",2,"ODV Fernwartung",0)}
+& {(New-Object -ComObject "Wscript.Shell").Popup("ODV Fernwartung wird gestartet....",2,"ODV Fernwartung",0)}
 if(!(Test-Path "$FilePath\$FileName")) {
     New-Item -Path "$FilePath" -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
     Download_TeamViewerQS
