@@ -1,5 +1,6 @@
-﻿$FilePath = "C:\Temp"
-$FileName = "ODVFernwartung.exe"
+
+$FilePath = 'C:\Temp'
+$FileName = 'ODVFernwartung.exe'
 $URL = "https://get.teamviewer.com/odvfernwartung"
 
 function Download_TeamViewerQS() {
