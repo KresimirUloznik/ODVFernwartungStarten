@@ -1,8 +1,9 @@
-
+#Variables
 $FilePath = 'C:\Temp'
 $FileName = 'ODVFernwartung.exe'
 $URL = 'https://get.teamviewer.com/odvfernwartung'
 
+#Functions
 function Download_TeamViewerQS() {
     $IEBrowser = New-Object -ComObject InternetExplorer.Application
     $IEBrowser.Navigate($URL)
@@ -11,7 +12,7 @@ function Download_TeamViewerQS() {
     Start-BitsTransfer -Source $CustomTVQS_URL -Destination "$FilePath\$FileName"
 }
 
-Start-Job {(New-Object -ComObject "Wscript.Shell").Popup("ODV Fernwartung startet....",20,"ODV Fernwartung",0)}
+#Code
 if(!(Test-Path "$FilePath\$FileName")) {
     New-Item -Path "$FilePath" -ItemType Directory -ErrorAction SilentlyContinue | Out-Null
     Download_TeamViewerQS
